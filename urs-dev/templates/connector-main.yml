@@ -9,7 +9,7 @@ metadata:
 spec:
   replicas: 1
   selector:
-    matchLables:
+    matchLabels:
       app: {{ .Values.connector_main.name }}
   template:
     metadata:
