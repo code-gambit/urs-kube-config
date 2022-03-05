@@ -2,4 +2,4 @@ dependencies:
   - name: url-shortener
     repository: https://code-gambit.github.io/urs-helm-chart/charts
     version: 0.1.0
-    alisa: url-shortener
+    alias: url-shortener
