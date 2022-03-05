@@ -9,7 +9,6 @@ therefore can validate schemas for multiple versions of Kubernetes.
 Card](https://goreportcard.com/badge/github.com/instrumenta/kubeval)](https://goreportcard.com/report/github.com/instrumenta/kubeval)
 [![GoDoc](https://godoc.org/github.com/instrumenta/kubeval?status.svg)](https://godoc.org/github.com/instrumenta/kubeval)
 
-
 ```
 $ kubeval my-invalid-rc.yaml
 WARN - fixtures/my-invalid-rc.yaml contains an invalid ReplicationController - spec.replicas: Invalid type. Expected: [integer,null], given: string
@@ -17,5 +16,10 @@ $ echo $?
 1
 ```
 
-
 For full usage and installation instructions see [kubeval.com](https://kubeval.com/).
+
+## Minimum hardware requirements for docker
+
+1. CPU 4 cores
+2. Memory 8GB
+3. Disk Image size 64GB
