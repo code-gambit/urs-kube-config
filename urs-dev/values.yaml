@@ -15,3 +15,10 @@ common:
   image_pull_policy: Always
   memory:
     microservices: "512M"
+
+cassandra:
+  image:
+    debug: true
+  jvm:
+    maxHeapSize: 500M
+    newHeapSize: 200M
