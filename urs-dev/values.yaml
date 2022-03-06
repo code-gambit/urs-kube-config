@@ -5,11 +5,16 @@ url-shortener:
   connector_main:
     enabled: true
     name: connector-main
-    image: codegb/urs-connector-main
+    image: "codegb/urs-connector-main:latest"
     cassandra:
-      keyspace_name: url-space
-      contact_point: 0.0.0.0
-      port: 9042
+      keyspace_name: urlspace
+      contact_point: "cassandra"
+      port: "9042"
+      username: "admin"
+      local_datacenter: "datacenter1"
+    secret:
+      name: connector-main-secret
+      cassandra_password: password
 
   common:
     image_pull_policy: Always
@@ -17,9 +22,14 @@ url-shortener:
       microservices: "512M"
 
   cassandra:
+    fullnameOverride: "cassandra"
     enabled: true
     image:
       debug: true
     jvm:
       maxHeapSize: 500M
       newHeapSize: 200M
+    dbUser:
+      user: admin
+      password: password
+
