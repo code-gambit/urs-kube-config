@@ -24,6 +24,7 @@ url-shortener:
   cassandra:
     fullnameOverride: "cassandra"
     enabled: true
+    initDBConfigMap: "cassandra-config-scripts"
     image:
       debug: true
     jvm:
