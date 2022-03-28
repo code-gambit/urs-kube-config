@@ -12,9 +12,23 @@ url-shortener:
       port: "9042"
       username: "admin"
       local_datacenter: "datacenter1"
+    datasource:
+      url: "jdbc:h2:mem:mtd"
+      username: "admin"
+      console:
+        enabled: true
+    zookeeper:
+      host: "urs-dev-zookeeper"
+      port: 2181
+      range:
+        limit: 10
+      znode:
+        path:
+          counter: "/counter"
     secret:
       name: connector-main-secret
       cassandra_password: password
+      datasource_password: password
 
   common:
     image_pull_policy: Always
@@ -27,9 +41,14 @@ url-shortener:
     initDBConfigMap: "cassandra-config-scripts"
     image:
       debug: true
+      tag: "3.11-debian-10"
+    livenessProbe:
+      enabled: false
+    readinessProbe:
+      enabled: false
     jvm:
-      maxHeapSize: 500M
-      newHeapSize: 200M
+      maxHeapSize: 1000M
+      newHeapSize: 500M
     dbUser:
       user: admin
       password: password
